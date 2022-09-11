@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <h1>Library</h1>
+          <button class="btn reset" id="reset" type="button">Reset</button>
+        </div>
+      </header>
+
+      <main class="main container">
+        <h2>my books</h2>
+        <div class="books" id="books">
+          <!-- <div class="book">
+            <h2>1984</h2>
+            <div class="book-info">
+              <h3>George Orwell</h3>
+              <p>328 pages</p>
+            </div>
+            <div class="controls">
+              <button class="control active" id="read">Read</button>
+              <button class="control" id="favorite">Favorite</button>
+              <button class="control" id="delete">delete</button>
+            </div>
+          </div>
+          <div class="book">
+            <h2>A Brief History of Time</h2>
+            <div class="book-info">
+              <h3>Stephen Hawking</h3>
+              <p>212 pages</p>
+            </div>
+            <div class="controls">
+              <button class="control active" id="read">Read</button>
+              <button class="control" id="favorite">Favorite</button>
+              <button class="control" id="delete">delete</button>
+            </div>
+          </div>
+          <div class="book">
+            <h2>The Shining</h2>
+            <div class="book-info">
+              <h3>Stephen King</h3>
+              <p>688 pages</p>
+            </div>
+            <div class="controls">
+              <button class="control active" id="read">Read</button>
+              <button class="control" id="favorite">Favorite</button>
+              <button class="control" id="delete">delete</button>
+            </div>
+          </div>
+          <div class="book">
+            <h2>The Sun Also Rises</h2>
+            <div class="book-info">
+              <h3>Ernest Hemingway</h3>
+              <p>251 pages</p>
+            </div>
+            <div class="controls">
+              <button class="control active" id="read">Read</button>
+              <button class="control" id="favorite">Favorite</button>
+              <button class="control" id="delete">delete</button>
+            </div> -->
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        Developed by <a href="https://github.com/a-adel-dev">Ahmad Adel</a> |
+        <a href="https://github.com/a-adel-dev/etch-a-sketch">Source</a>
+      </footer>
+    </div>
+
+    <button class="new btn" id="new">New Book</button>
+
+    <div class="info modal">
+      <form action="AddBook">
+        <ul>
+          <li>
+            <label for="title">Book title</label>
+            <input type="text" name="title" id="title" />
+          </li>
+          <li>
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author" />
+          </li>
+          <li>
+            <label for="pages">No. of pages</label>
+            <input type="text" name="pages" id="pages" />
+          </li>
+          <li>
+            <div class="option">
+              <label for="isRead"> I read this book</label>
+              <input type="checkbox" id="isRead" name="isRead" />
+            </div>
+            <div class="option">
+              <label for="favorite">Favorite</label>
+              <input type="checkbox" name="favorite" id="favorite" />
+            </div>
+          </li>
+          <li>
+            <button class="add btn" id="addbookbtn" type="button">Add book</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <div class="reset-box modal">
+      <h3>warning</h3>
+      <p>This will delete all books. Proceed?</p>
+      <div class="reset-controls">
+        <button class="btn" id="proceed">Yes</button>
+        <button class="btn" id="cancel">No</button>
+      </div>
+    </div>
+  </body>
+</html>

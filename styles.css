@@ -1,0 +1,287 @@
+:root {
+    --color-primary: #fe6847;
+    --color-font-bright: #fff;
+    --color-btn: #fbb13c;
+    --color-secondry: #fff5e8;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+::selection {
+    background: var(--color-primary);
+    color: var(--color-font-bright);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    width:900px;
+    margin: 0 auto;
+}
+
+
+.btn {
+    background-color: var(--color-btn);
+    border: none;
+    padding: .5rem;
+    transition: .3s all ease-in-out;
+}
+
+.btn:hover {
+    background-color: #febe56;
+    cursor: pointer;
+}
+
+.header {
+    height: 80px;
+    background-color: var(--color-primary);
+    color: var(--color-font-bright);
+}
+
+.header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.header .container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reset {
+    width: 120px;
+    font-size: 1.2rem;
+    
+}
+
+.main {
+    flex: 1;
+}
+
+.main > h2 {
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 1rem;
+    gap: 30px;
+}
+
+.book {
+    height: 300px;
+    background-color: var(--color-secondry);
+    box-shadow: 5px 5px 5px #eee;
+    transition: .4s all ease-in-out;
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book:last-child {
+    margin-bottom: 2rem;
+}
+
+.book h2 {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.book-info {
+    background-color: var(--color-primary);
+    display: flex;
+    color: var(--color-font-bright);
+    height: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.book-info {
+    font-size: 1.1rem;
+}
+
+.controls {
+    background-color: var(--color-primary);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    height: 22px;
+}
+
+.control {
+    border: none;
+    background-color: #eee;
+    width: 60px;
+    border-radius: 30px;
+    color: #404040;
+    text-transform: lowercase;
+
+}
+
+.control:hover {
+    cursor: pointer;
+    background-color: var(--color-btn);
+}
+
+.control.active {
+    background-color: var(--color-btn);
+}
+
+.footer {
+    /* position: absolute;
+    bottom: 0;
+    right: 0; */
+
+    background-color: var(--color-primary);
+    color: #eee;
+    height: 20px;
+    padding: 8px;
+    text-align: center;
+}
+
+.footer a { 
+    color: inherit;
+}
+
+.dark {
+    pointer-events: none;
+}
+.dark::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.info {
+        width: 400px;
+        height: 260px;
+            padding: 3rem;
+}
+
+.info li {
+    height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.info li:nth-child(4) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.info li:last-child{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.info  button {
+    width: 80px;
+}
+
+.info li label {
+    justify-self: end;
+}
+
+.info input {
+    height: 1.3rem;
+    border: 1px solid #ccc;
+    padding: .5rem;
+    font-size: 1rem;
+}
+
+.info input:focus {
+    border: 1px solid var(--color-primary);
+    outline: none;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+}
+
+.modal {
+    opacity: 0;
+    z-index: 10;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px #666;
+
+}
+
+.active-modal {
+    opacity: 1;
+    top: 35%;
+    left: 40%;
+}
+
+.reset-box {
+    width: 400px;
+}
+.reset-box h3 {
+    font-size: 1.4rem;
+    background-color: var(--color-primary);
+    height: 26px;
+    padding: 1rem;
+    text-transform: capitalize;
+    color: var(--color-font-bright);
+}
+
+.reset-box p {
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.reset-controls {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reset-controls button {
+    width: 60px;
+}
+
+.new {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    width: 200px;
+    height: 3rem;
+    font-size: 1.5rem;
+}
