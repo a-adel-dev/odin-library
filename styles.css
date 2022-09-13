@@ -18,10 +18,14 @@ body {
     position: relative;
 }
 
+body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+}
 .wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    flex: 1;
+
 }
 .container {
     width:900px;
@@ -85,14 +89,14 @@ body {
 }
 
 .book {
-    height: 300px;
+    height: 314px;
     background-color: var(--color-secondry);
-    box-shadow: 5px 5px 5px #eee;
+    box-shadow: 5px 5px 5px #ddd;
     transition: .4s all ease-in-out;
 }
 
 .book:hover {
-    transform: scale(1.05);
+    box-shadow: 10px 10px 5px #ddd;
 }
 
 .book:last-child {
@@ -150,6 +154,11 @@ body {
 
 .control.active {
     background-color: var(--color-btn);
+    border: none;
+}
+
+.control:active {
+    background-color: #ff6847;
 }
 
 .footer {

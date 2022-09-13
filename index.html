@@ -16,7 +16,7 @@
     <title>Library</title>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
       <header class="header">
         <div class="container">
           <h1>Library</h1>
@@ -27,53 +27,6 @@
       <main class="main container">
         <h2>my books</h2>
         <div class="books" id="books">
-          <!-- <div class="book">
-            <h2>1984</h2>
-            <div class="book-info">
-              <h3>George Orwell</h3>
-              <p>328 pages</p>
-            </div>
-            <div class="controls">
-              <button class="control active" id="read">Read</button>
-              <button class="control" id="favorite">Favorite</button>
-              <button class="control" id="delete">delete</button>
-            </div>
-          </div>
-          <div class="book">
-            <h2>A Brief History of Time</h2>
-            <div class="book-info">
-              <h3>Stephen Hawking</h3>
-              <p>212 pages</p>
-            </div>
-            <div class="controls">
-              <button class="control active" id="read">Read</button>
-              <button class="control" id="favorite">Favorite</button>
-              <button class="control" id="delete">delete</button>
-            </div>
-          </div>
-          <div class="book">
-            <h2>The Shining</h2>
-            <div class="book-info">
-              <h3>Stephen King</h3>
-              <p>688 pages</p>
-            </div>
-            <div class="controls">
-              <button class="control active" id="read">Read</button>
-              <button class="control" id="favorite">Favorite</button>
-              <button class="control" id="delete">delete</button>
-            </div>
-          </div>
-          <div class="book">
-            <h2>The Sun Also Rises</h2>
-            <div class="book-info">
-              <h3>Ernest Hemingway</h3>
-              <p>251 pages</p>
-            </div>
-            <div class="controls">
-              <button class="control active" id="read">Read</button>
-              <button class="control" id="favorite">Favorite</button>
-              <button class="control" id="delete">delete</button>
-            </div> -->
           </div>
         </div>
       </main>
@@ -86,7 +39,7 @@
 
     <button class="new btn" id="new">New Book</button>
 
-    <div class="info modal">
+    <div class="info modal" id="info">
       <form action="AddBook">
         <ul>
           <li>
@@ -117,7 +70,7 @@
         </ul>
       </form>
     </div>
-    <div class="reset-box modal">
+    <div class="reset-box modal" id="reset-panel">
       <h3>warning</h3>
       <p>This will delete all books. Proceed?</p>
       <div class="reset-controls">

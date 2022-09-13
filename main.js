@@ -15,6 +15,7 @@ function AddBookToLibrary(title, author, pages, isRead, isFavorite){
 function DeleteBook(index) {
     // myLibrary = myLibrary.filter(book => book.title !== title);
     myLibrary.splice(index, 1);
+    UpdateLibraryDisplay();
 
 }
 
@@ -22,17 +23,17 @@ function ToggleFavoriteBook(index) {
     // book = myLibrary.filter(book=>book.title ===title);
     const book = myLibrary[index];
     book.isFavorite = !book.isFavorite;
+    UpdateLibraryDisplay();
 
 }
 
 function ToggleReadBook(index) {
-    myLibrary[index].isFavorite = !myLibrary[index].isFavorite;
+    myLibrary[index].isRead = !myLibrary[index].isRead;
     UpdateLibraryDisplay();
 }
 
 function Reset(){
     myLibrary = [];
-
 }
 
 
@@ -52,8 +53,19 @@ console.table(myLibrary);
 */
 
 
-const newBookBtn = document.querySelector("#new");
+const newBookModalBtn = document.querySelector("#new");
+
+const newBookBtn = document.querySelector('#addbookbtn');
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+const pagesInput = document.querySelector('#pages');
+const isReadInput = document.querySelector('#isRead');
+const isFavInput = document.querySelector('#favorite');
+
+
 const resetBookBtn = document.querySelector('#reset');
+const addBookPanel = document.querySelector('#info');
+const wrapper = document.querySelector('#wrapper');
 
 let readButtons = document.querySelectorAll('#read');
 let favButtons = document.querySelectorAll('#favorite');
@@ -61,7 +73,12 @@ let delButtons = document.querySelectorAll('#delete');
 
 const books = document.querySelector("#books");
 
+const resetPanel = document.querySelector('#reset-panel');
+const proceedBtn = document.querySelector('#proceed');
+const cancelBtn = document.querySelector('#cancel');
+
 function UpdateLibraryDisplay(){
+    books.innerHTML ='';
     for (let i= 0; i<myLibrary.length;i++){
         DisplayBook(myLibrary[i], i);
     }
@@ -74,9 +91,21 @@ function UpdateButtons() {
     delButtons = document.querySelectorAll('#delete');
 
     readButtons.forEach((button)=>{
-        const id = button.parentElement.parentElement.getAttribute('data-id');
-        button.addEventListener('click', ()=>{
-            ToggleReadBook(id)});
+        button.addEventListener('click', (e)=>{  
+            ToggleReadBook(e.target.parentElement.parentElement.getAttribute('data-id'));
+        });
+    });
+
+    favButtons.forEach((button)=>{
+        button.addEventListener('click',(e)=>{
+            ToggleFavoriteBook(e.target.parentElement.parentElement.getAttribute('data-id'));
+        });
+    });
+
+    delButtons.forEach((button)=>{
+        button.addEventListener('click',(e)=>{
+            DeleteBook(e.target.parentElement.parentElement.getAttribute('data-id'));
+        });
     });
 }
 
@@ -138,9 +167,47 @@ function DisplayBook(book, id){
     books.appendChild(newBook);
 }
 
-
 AddBookToLibrary('1984','George Orwell', 328, false, true);
 AddBookToLibrary('The way of kings', 'Brandon Sanderson', 988, true, true);
 UpdateLibraryDisplay();
+
+
+newBookModalBtn.addEventListener('click', ()=>{
+    addBookPanel.classList.add('active-modal');
+    wrapper.classList.add('dark');
+});
+
+newBookBtn.addEventListener(('click'),()=>{
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const pages = pagesInput.value;
+    const read = isReadInput.checked;
+    const favorite = isFavInput.checked;
+    AddBookToLibrary(title, author, pages, read, favorite);
+
+    addBookPanel.classList.remove('active-modal');
+    wrapper.classList.remove('dark');
+
+
+    UpdateLibraryDisplay();
+});
+
+resetBookBtn.addEventListener(('click'), ()=>{
+    resetPanel.classList.add('active-modal');
+    wrapper.classList.add('dark');
+});
+
+proceedBtn.addEventListener(('click'), ()=>{
+    myLibrary = [];
+    UpdateLibraryDisplay();
+    wrapper.classList.remove('dark');
+    resetPanel.classList.remove('active-modal');
+});
+
+cancelBtn.addEventListener(('click'), ()=>{
+    wrapper.classList.remove('dark');
+    resetPanel.classList.remove('active-modal');
+});
+
 
 
