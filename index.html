@@ -33,49 +33,56 @@
 
       <footer class="footer">
         Developed by <a href="https://github.com/a-adel-dev">Ahmad Adel</a> |
-        <a href="https://github.com/a-adel-dev/etch-a-sketch">Source</a>
+        <a href="https://github.com/a-adel-dev/odin-library">Source</a>
       </footer>
     </div>
 
     <button class="new btn" id="new">New Book</button>
 
     <div class="info modal" id="info">
-      <form action="AddBook">
-        <ul>
-          <li>
-            <label for="title">Book title</label>
-            <input type="text" name="title" id="title" />
-          </li>
-          <li>
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author" />
-          </li>
-          <li>
-            <label for="pages">No. of pages</label>
-            <input type="text" name="pages" id="pages" />
-          </li>
-          <li>
-            <div class="option">
-              <label for="isRead"> I read this book</label>
-              <input type="checkbox" id="isRead" name="isRead" />
-            </div>
-            <div class="option">
-              <label for="favorite">Favorite</label>
-              <input type="checkbox" name="favorite" id="favorite" />
-            </div>
-          </li>
-          <li>
-            <button class="add btn" id="addbookbtn" type="button">Add book</button>
-          </li>
-        </ul>
-      </form>
+      <div class="modal-content">
+        <form action="AddBook">
+          <ul>
+            <li>
+              <label for="title">Book title *</label>
+              <input type="text" name="title" id="title" required/>
+              <p id="title-error">*Please enter a valid title.</p>
+            </li>
+            <li>
+              <label for="author">Author *</label>
+              <input type="text" name="author" id="author" required/>
+              <p id="author-error">*Please enter a valid author name.</p>
+            </li>
+            <li>
+              <label for="pages">No. of pages *</label>
+              <input type="number" name="pages" id="pages" required min="1" />
+              <p id="pages-error" >*Please enter a valid page number.</p>
+            </li>
+            <li>
+              <div class="option">
+                <label for="isRead"> I read this book</label>
+                <input type="checkbox" id="isRead" name="isRead" />
+              </div>
+              <div class="option">
+                <label for="favorite">Favorite</label>
+                <input type="checkbox" name="favorite" id="favorite" />
+              </div>
+            </li>
+            <li>
+              <button class="add btn" id="addbookbtn" type="button">Add book</button>
+            </li>
+          </ul>
+        </form>
+      </div>
     </div>
     <div class="reset-box modal" id="reset-panel">
-      <h3>warning</h3>
-      <p>This will delete all books. Proceed?</p>
-      <div class="reset-controls">
-        <button class="btn" id="proceed">Yes</button>
-        <button class="btn" id="cancel">No</button>
+      <div class="modal-content">
+        <h3>warning</h3>
+        <p>This will delete all books. Proceed?</p>
+        <div class="reset-controls">
+          <button class="btn" id="proceed">Yes</button>
+          <button class="btn" id="cancel">No</button>
+        </div>
       </div>
     </div>
   </body>

@@ -65,6 +65,7 @@ const isFavInput = document.querySelector('#favorite');
 
 const resetBookBtn = document.querySelector('#reset');
 const addBookPanel = document.querySelector('#info');
+const addBookmodal = document.getElementById('add-book-modal');
 const wrapper = document.querySelector('#wrapper');
 
 let readButtons = document.querySelectorAll('#read');
@@ -158,7 +159,6 @@ function DisplayBook(book, id){
 
 
     newBook.classList.add("book");
-    //add data index
     newBook.appendChild(bookTitle);
     newBook.appendChild(bookInfo);
     newBook.appendChild(controls);
@@ -174,38 +174,81 @@ UpdateLibraryDisplay();
 
 newBookModalBtn.addEventListener('click', ()=>{
     addBookPanel.classList.add('active-modal');
-    wrapper.classList.add('dark');
 });
+
+window.addEventListener(('click'), (e)=>{
+    if (e.target == addBookPanel) {
+        addBookPanel.classList.remove("active-modal");
+    }
+})
 
 newBookBtn.addEventListener(('click'),()=>{
-    const title = titleInput.value;
-    const author = authorInput.value;
-    const pages = pagesInput.value;
-    const read = isReadInput.checked;
-    const favorite = isFavInput.checked;
-    AddBookToLibrary(title, author, pages, read, favorite);
+    
+    if (titleInput.checkValidity() && authorInput.checkValidity() && pagesInput.checkValidity()){
+        const title = titleInput.value;
+        const author = authorInput.value;
+        const pages = pagesInput.value;
+        const read = isReadInput.checked;
+        const favorite = isFavInput.checked;
 
-    addBookPanel.classList.remove('active-modal');
-    wrapper.classList.remove('dark');
+        AddBookToLibrary(title, author, pages, read, favorite);
+        addBookPanel.classList.remove('active-modal');
 
+        UpdateLibraryDisplay();
+    }else {
+    if (!titleInput.checkValidity()){
+        document.querySelector('#title-error').style.opacity = 1;
+    }
 
-    UpdateLibraryDisplay();
+    if (!authorInput.checkValidity()){
+        document.querySelector('#author-error').style.opacity = 1;
+    }
+
+    if (!pagesInput.checkValidity()){
+        document.querySelector('#pages-error').style.opacity = 1;
+    }
+
+    }
 });
+
+titleInput.addEventListener('input', ()=>{
+    if (!titleInput.checkValidity()){
+    document.querySelector('#title-error').style.opacity = 1;
+    }else {
+        document.querySelector('#title-error').style.opacity = 0;
+    }
+});
+
+authorInput.addEventListener('input', ()=>{
+    if (!authorInput.checkValidity()){
+    document.querySelector('#author-error').style.opacity = 1;
+    }else {
+        document.querySelector('#author-error').style.opacity = 0;
+    }
+});
+
+pagesInput.addEventListener('input', ()=>{
+    if (!pagesInput.checkValidity()){
+    document.querySelector('#pages-error').style.opacity = 1;
+    }else {
+        document.querySelector('#pages-error').style.opacity = 0;
+    }
+});
+
+
 
 resetBookBtn.addEventListener(('click'), ()=>{
     resetPanel.classList.add('active-modal');
-    wrapper.classList.add('dark');
 });
 
 proceedBtn.addEventListener(('click'), ()=>{
     myLibrary = [];
     UpdateLibraryDisplay();
-    wrapper.classList.remove('dark');
+
     resetPanel.classList.remove('active-modal');
 });
 
 cancelBtn.addEventListener(('click'), ()=>{
-    wrapper.classList.remove('dark');
     resetPanel.classList.remove('active-modal');
 });
 
