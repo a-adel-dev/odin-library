@@ -180,6 +180,10 @@ window.addEventListener(('click'), (e)=>{
     if (e.target == addBookPanel) {
         addBookPanel.classList.remove("active-modal");
     }
+
+    if(e.target == resetPanel) {
+        resetPanel.classList.remove("active-modal");
+    }
 })
 
 newBookBtn.addEventListener(('click'),()=>{
